@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile.uhf
     container_name: uhf-server
     ports:
-      - "8000:8000"
+      - "8181:8000"
     volumes:
       - uhf-data:/usr/src/app/uhf-data
     restart: unless-stopped

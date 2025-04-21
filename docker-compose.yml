@@ -6,9 +6,11 @@ services:
       context: .
       dockerfile: Dockerfile.uhf
     container_name: uhf-server
-    restart: unless-stopped
+    ports:
+      - "8000:8000"
     volumes:
-      - ./uhf-data:/var/lib/uhf-server
-    working_dir: /uhf-data
-    network_mode: host
-    command: ["uhf-server", "--port", "8000"] # optionally change the port in case it's already in use by something else
+      - uhf-data:/usr/src/app/uhf-data
+    restart: unless-stopped
+
+volumes:
+  uhf-data:
